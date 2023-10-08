@@ -2,15 +2,17 @@ import axios from "axios";
 
 
 const apiInstance = axios.create({
-  baseURL: 'https://swapi.dev/api/',
+  // baseURL: 'https://rickandmortyapi.com/api/',
+  baseURL: 'https://jsonplaceholder.typicode.com/',
   headers: {
-    contenttype: 'application/json',
-  },
+    'Content-Type': 'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin': '*',
+  }
 })
 
-/** Поличение всех элементов или определенного элемента */
+/** Получение всех элементов или определенного элемента */
 export function getItems(url: string, id: number|null = null) {
-  return apiInstance.get(url, { data: id })
+  return apiInstance.get(url, {data: id})
 }
 
 export function createItem(url: string, payLoad: object) {

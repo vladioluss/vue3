@@ -15,9 +15,22 @@ export default defineConfig({
       ],
     }),
   ],
+
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+
+  /*server: {
+    proxy: {
+      "/api": {
+        target: "https://swapi.dev",
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+    cors: false,
+  },*/
 })
